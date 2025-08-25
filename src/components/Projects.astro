@@ -4,6 +4,7 @@ import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import Link from "./icons/Link.astro";
 import LinkButton from "./LinkButton.astro";
+import Clerk from "./icons/Clerk.astro";
 
 const TAGS = {
   NEXT: {
@@ -16,7 +17,13 @@ const TAGS = {
     class: "bg-[#003159] text-white",
     icon: Tailwind,
   },
+  CLERK: {
+    name: "Clerk",
+    class: "bg-[#3b82f6] text-white",
+    icon: Clerk,
+  },
 };
+
 const PROJECTS: {
   title: string;
   description: string;
@@ -35,6 +42,13 @@ const PROJECTS: {
       "Sistema de trackeo de transportes urban para los estudiantes. Creado con Next.js, NestJS, WebSockets, Shadcn y React Native",
     image: "/projects/urbanup.webp",
     tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "EstatsUP",
+    description:
+      "EstatsUP es una plataforma inteligente para la gestión de calificaciones de inglés. Permite subir datos de forma masiva o unitaria a partir de archivos Excel, categorizarlos automáticamente y generar estadísticas claras y visuales. Una solución ágil para transformar información en reportes útiles y fáciles de interpretar.",
+    image: "/projects/estatsup.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.CLERK],
   },
 ];
 ---
