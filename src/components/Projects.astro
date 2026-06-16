@@ -1,124 +1,436 @@
 ---
 import GitHub from "./icons/GitHub.astro";
+import Link from "./icons/Link.astro";
 import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
-import Link from "./icons/Link.astro";
-import LinkButton from "./LinkButton.astro";
 import Clerk from "./icons/Clerk.astro";
 import Postgresql from "./icons/Postgresql.astro";
 
 const TAGS = {
-  NEXT: {
-    name: "Next.js",
-    class: "bg-black text-white",
-    icon: NextJS,
-  },
-  TAILWIND: {
-    name: "Tailwind CSS",
-    class: "bg-[#003159] text-white",
-    icon: Tailwind,
-  },
-  CLERK: {
-    name: "Clerk",
-    class: "bg-purple-500 text-white",
-    icon: Clerk,
-  },
-  POSTGRESQL: {
-    name: "PostgreSQL",
-    class: "bg-blue-500 text-white",
-    icon: Postgresql,
-  },
+  NEXT: { name: "Next.js", class: "bg-black text-white", icon: NextJS },
+  TAILWIND: { name: "Tailwind CSS", class: "bg-[#003159] text-white", icon: Tailwind },
+  CLERK: { name: "Clerk", class: "bg-purple-500 text-white", icon: Clerk },
+  POSTGRESQL: { name: "PostgreSQL", class: "bg-blue-500 text-white", icon: Postgresql },
+  NESTJS: { name: "NestJS", class: "bg-red-500 text-white", icon: null },
+  EXPRESS: { name: "Express", class: "bg-gray-700 text-white", icon: null },
+  REACT: { name: "React", class: "bg-cyan-500 text-white", icon: null },
+  TYPESCRIPT: { name: "TypeScript", class: "bg-blue-600 text-white", icon: null },
+  WEBSOCKET: { name: "WebSockets", class: "bg-green-500 text-white", icon: null },
+  REACT_NATIVE: { name: "React Native", class: "bg-black text-white", icon: null },
+  FIGMA: { name: "Figma", class: "bg-pink-500 text-white", icon: null },
+  PRISMA: { name: "Prisma", class: "bg-indigo-500 text-white", icon: null },
 };
 
-const PROJECTS: {
-  title: string;
-  description: string;
-  image: string;
-  tags: {
-    name: string;
-    class: string;
-    icon: (_props: Record<string, any>) => any;
-  }[];
-  link?: string;
-  github?: string;
-}[] = [
+const PROJECTS = [
   {
-    title: "Trackeo de transportes Urban",
-    description:
-      "Sistema de trackeo de transportes urban para los estudiantes. Creado con Next.js, NestJS, WebSockets, Shadcn y React Native",
-    image: "/projects/urbanup.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.POSTGRESQL],
+    id: "urbanup",
+    title: "UrbanTrack",
+    subtitle: "Sistema de Rastreo de Transporte Urbano",
+    description: "Plataforma de monitoreo en tiempo real para transporte público universitario. Permite a los estudiantes visualizar la ubicación exacta de las unidades, tiempos estimados de llegada y optimizar sus rutas diarias con notificaciones inteligentes.",
+    images: ["/projects/urbanup.webp"],
+    tags: [TAGS.NEXT, TAGS.NESTJS, TAGS.TAILWIND, TAGS.WEBSOCKET, TAGS.POSTGRESQL, TAGS.REACT_NATIVE],
+    github: null,
+    link: null,
   },
   {
+    id: "estatsup",
     title: "EstatsUP",
-    description:
-      "EstatsUP es una plataforma inteligente para la gestión de calificaciones de inglés. Permite subir datos de forma masiva o unitaria a partir de archivos Excel, categorizarlos automáticamente y generar estadísticas claras y visuales. Una solución ágil para transformar información en reportes útiles y fáciles de interpretar.",
-    image: "/projects/estatsup.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.CLERK, TAGS.POSTGRESQL],
+    subtitle: "Inteligencia Analítica para Educación",
+    description: "Dashboard analítico impulsado por IA que transforma datos de calificaciones en insights accionables. Automatiza la categorización de estudiantes, genera reportes visuales interactivos y predice tendencias de rendimiento académico.",
+    images: ["/projects/estatsup.webp"],
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.CLERK, TAGS.PRISMA, TAGS.TYPESCRIPT],
+    github: "https://github.com/franckcracko/estatsup",
+    link: null,
   },
   {
+    id: "netup",
     title: "NetUP",
-    description:
-      "NetUP es una red social universitaria diseñada para conectar a estudiantes dentro y fuera del campus. Además de fomentar la interacción académica y social, integra un tracker en tiempo real de autobuses locales, facilitando la movilidad y mejorando la experiencia universitaria con información práctica y centralizada en un solo lugar.",
-    image: "/projects/netup.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.CLERK, TAGS.POSTGRESQL],
+    subtitle: "Red Social Universitaria Integral",
+    description: "Ecosistema digital que conecta a la comunidad universitaria mediante perfiles personalizados, grupos de estudio y eventos. Integra un tracker de transporte en tiempo real, directorio de servicios del campus y marketplace académico.",
+    images: ["/projects/netup.webp"],
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.CLERK, TAGS.POSTGRESQL, TAGS.REACT_NATIVE, TAGS.FIGMA],
+    github: "https://github.com/franckcracko/netup",
+    link: null,
+  },
+  {
+    id: "wms",
+    title: "MeatFlow WMS",
+    subtitle: "Gestión Inteligente de Almacenes Cárnicos",
+    description: "Plataforma WMS multiplataforma especializada en la industria cárnica, sincronizada con aplicaciones móviles equipadas con escáneres inteligentes de alta precisión capaces de identificar patrones en códigos de barras. Centraliza operaciones críticas como salidas, cross-docking, pedidos enlazados a un centro de distribución, rastreo de cajas en tiempo real, modificaciones de inventario, administración de tarimas, combos y unidades, con una arquitectura robusta que conecta piso de almacén y oficina en un solo ecosistema.",
+    images: ["/projects/wms/home.png", "/projects/wms/orders.png", "/projects/wms/exits.png", "/projects/wms/mobile.png"],
+    tags: [TAGS.NEXT, TAGS.EXPRESS, TAGS.POSTGRESQL, TAGS.REACT_NATIVE, TAGS.WEBSOCKET, TAGS.TYPESCRIPT],
+    github: null,
+    link: null,
   },
 ];
 ---
 
-<div class="flex flex-col gap-y-16">
-  {
-    PROJECTS.map(({ image, title, description, tags, link, github }) => (
-      <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
-        <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+<div class="relative" id="projects-container">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {PROJECTS.map((project) => (
+      <article
+        class="project-card group relative cursor-pointer rounded-2xl overflow-hidden bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700/50 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2"
+        data-project={project.id}
+        tabindex="0"
+        role="button"
+        aria-label={`Ver detalles de ${project.title}`}
+      >
+        <div>
+          <div class={`relative overflow-hidden ${project.images.length > 1 ? "aspect-video" : "aspect-[4/3]"}`}>
             <img
-              alt="Recién llegado vs 5 años en Nueva Zelanda"
-              class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
+              src={project.images[0]}
+              alt={project.title}
+              class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
-              src={image}
             />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-100">
+              <p class="text-sm text-white/80 font-medium">{project.subtitle}</p>
+            </div>
+            {project.images.length > 1 && (
+              <div class="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-black/60 backdrop-blur-sm px-2 py-1 text-xs font-medium text-white">
+                <svg class="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                </svg>
+                1 / {project.images.length}
+              </div>
+            )}
+          </div>
+          {project.images.length > 1 && (
+            <div class="grid grid-cols-3 gap-1.5 p-2">
+              {project.images.slice(1, 4).map((img, i) => {
+                const isLastShown = i === 2 && project.images.length > 4;
+                return (
+                  <div class="relative aspect-[4/3] overflow-hidden rounded-md ring-1 ring-gray-200 dark:ring-gray-700">
+                    <img
+                      src={img}
+                      alt={`${project.title} - miniatura ${i + 2}`}
+                      class={`h-full w-full object-cover ${isLastShown ? "opacity-60" : ""}`}
+                      loading="lazy"
+                    />
+                    {isLastShown && (
+                      <div class="absolute inset-0 flex items-center justify-center bg-black/40 text-white text-sm font-semibold">
+                        +{project.images.length - 4}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+        <div class="p-5">
+          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
+            {project.title}
+          </h3>
+          <p class="mt-2 text-sm text-gray-500 dark:text-gray-400 line-clamp-2  transition-all">
+            {project.description}
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {project.tags.slice(0, 3).map((tag) => (
+              <span class={`inline-flex items-center gap-1.5 rounded-full text-xs px-2.5 py-1 ${tag.class}`}>
+                {tag.name}
+              </span>
+            ))}
+            {project.tags.length > 3 && (
+              <span class="inline-flex items-center rounded-full text-xs px-2.5 py-1 bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300">
+                +{project.tags.length - 3}
+              </span>
+            )}
           </div>
         </div>
 
-        <div class="w-full md:w-1/2 md:max-w-lg">
-          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {title}
+        <div class="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
+          {project.github ? (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-full bg-white/90 dark:bg-gray-800/90 text-gray-700 dark:text-gray-200 hover:bg-white hover:text-blue-500 transition-colors"
+              aria-label={`Ver código de ${project.title} en GitHub`}
+              data-stop-propagation
+            >
+              <GitHub class="size-4" />
+            </a>
+          ) : null}
+          {project.link ? (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-2 rounded-full bg-white/90 dark:bg-gray-800/90 text-gray-700 dark:text-gray-200 hover:bg-white hover:text-blue-500 transition-colors"
+              aria-label={`Ver ${project.title} en vivo`}
+              data-stop-propagation
+            >
+              <Link class="size-4" />
+            </a>
+          ) : null}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  {PROJECTS.map((project) => (
+    <div
+      class="project-modal fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300"
+      id={`modal-${project.id}`}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={`modal-title-${project.id}`}
+    >
+      <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-close-modal></div>
+      <div class="relative w-full max-w-4xl max-h-[90vh] overflow-auto rounded-2xl bg-white dark:bg-gray-900 shadow-2xl transform scale-95 transition-transform duration-300">
+        <button
+          class="absolute top-4 right-4 z-10 p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+          aria-label="Cerrar modal"
+          data-close-modal
+        >
+          <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <div class="carousel-container relative aspect-video overflow-hidden rounded-t-2xl bg-gray-900">
+          <div class="carousel-track flex h-full transition-transform duration-500" data-carousel={project.id}>
+            {project.images.map((image, index) => (
+              <img
+                src={image}
+                alt={`${project.title} - Imagen ${index + 1}`}
+                class="w-full h-full object-cover flex-shrink-0"
+                loading="lazy"
+              />
+            ))}
+          </div>
+
+          <button
+            class={`carousel-prev absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors ${project.images.length > 1 ? "" : "hidden"}`}
+            aria-label="Imagen anterior"
+          >
+            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            class={`carousel-next absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors ${project.images.length > 1 ? "" : "hidden"}`}
+            aria-label="Siguiente imagen"
+          >
+            <svg class="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {project.images.length > 1 && (
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+              {project.images.map((_, index) => (
+                <button
+                  class="carousel-dot w-2 h-2 rounded-full bg-white/50 transition-colors"
+                  data-slide={index}
+                  aria-label={`Ir a imagen ${index + 1}`}
+                ></button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        <div class="p-6 md:p-8">
+          <h3 id={`modal-title-${project.id}`} class="text-2xl font-bold text-gray-800 dark:text-white">
+            {project.title}
           </h3>
-          <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
-              {tags.map((tag) => (
-                <li>
-                  <span
-                    class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
+          <p class="mt-1 text-sm text-blue-500 dark:text-blue-400 font-medium">{project.subtitle}</p>
+
+          <p class="mt-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+            {project.description}
+          </p>
+
+          <div class="mt-6">
+            <h4 class="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
+              Tecnologías
+            </h4>
+            <ul class="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <li class="inline-flex items-center gap-1.5 rounded-full text-sm px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                  <span class={`w-2 h-2 rounded-full ${tag.class}`}></span>
+                  {tag.name}
                 </li>
               ))}
             </ul>
+          </div>
 
-            <div class="mt-2 text-gray-700 dark:text-gray-400">
-              {description}
-            </div>
-            <footer class="flex items-end justify-start mt-4 gap-x-4">
-              {github && (
-                <LinkButton href={github}>
-                  <GitHub class="size-6" />
-                  Code
-                </LinkButton>
-              )}
-              {link && (
-                <LinkButton href={link}>
-                  <Link class="size-4" />
-                  Preview
-                </LinkButton>
-              )}
-            </footer>
+          <div class="mt-6 flex gap-4">
+            {project.github ? (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 font-medium hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+              >
+                <GitHub class="size-4" />
+                Ver código
+              </a>
+            ) : null}
+            {project.link ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-gray-900 dark:border-gray-100 text-gray-900 dark:text-gray-100 font-medium hover:bg-gray-900 hover:text-white dark:hover:bg-gray-100 dark:hover:text-gray-900 transition-colors"
+              >
+                <Link class="size-4" />
+                Visitar
+              </a>
+            ) : null}
           </div>
         </div>
-      </article>
-    ))
-  }
+      </div>
+    </div>
+  ))}
 </div>
+
+<style>
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .project-modal.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .project-modal.is-open .relative.transform {
+    transform: scale(1);
+  }
+
+  .carousel-dot.is-active {
+    background-color: white;
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    const modals = document.querySelectorAll('.project-modal');
+
+    projectCards.forEach((card) => {
+      const cardEl = card as HTMLElement;
+      cardEl.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.closest('[data-stop-propagation]')) return;
+        const projectId = card.getAttribute('data-project');
+        const modal = document.getElementById(`modal-${projectId}`);
+        if (modal) openModal(modal);
+      });
+
+      cardEl.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const projectId = card.getAttribute('data-project');
+          const modal = document.getElementById(`modal-${projectId}`);
+          if (modal) openModal(modal);
+        }
+      });
+    });
+
+    modals.forEach((modal) => {
+      const modalEl = modal as HTMLElement;
+      const closeButtons = modal.querySelectorAll('[data-close-modal]');
+      closeButtons.forEach((btn) => {
+        btn.addEventListener('click', () => closeModal(modal));
+      });
+
+      modalEl.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Escape') closeModal(modal);
+      });
+    });
+
+    function openModal(modal: Element) {
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      const firstFocusable = modal.querySelector('button, a, [tabindex="0"]') as HTMLElement;
+      firstFocusable?.focus();
+
+      const carousel = modal.querySelector('.carousel-container') as HTMLElement;
+      if (carousel) startAutoAdvance(carousel);
+    }
+
+    function closeModal(modal: Element) {
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      const carousel = modal.querySelector('.carousel-container') as HTMLElement;
+      if (carousel) stopAutoAdvance(carousel);
+    }
+
+    const AUTO_ADVANCE_MS = 4000;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function startAutoAdvance(container: HTMLElement) {
+      stopAutoAdvance(container);
+      if (prefersReducedMotion.matches) return;
+      const images = container.querySelectorAll('img');
+      if (images.length <= 1) return;
+      const nextBtn = container.querySelector('.carousel-next') as HTMLButtonElement | null;
+      if (!nextBtn) return;
+      const id = window.setInterval(() => {
+        if (container.closest('.project-modal.is-open')) {
+          nextBtn.click();
+        }
+      }, AUTO_ADVANCE_MS);
+      (container as any).__autoAdvance = id;
+    }
+
+    function stopAutoAdvance(container: HTMLElement) {
+      const id = (container as any).__autoAdvance;
+      if (id) {
+        clearInterval(id);
+        delete (container as any).__autoAdvance;
+      }
+    }
+
+    document.querySelectorAll('.carousel-container').forEach((container) => {
+      const containerEl = container as HTMLElement;
+      const track = container.querySelector('.carousel-track') as HTMLElement;
+      const prevBtn = container.querySelector('.carousel-prev') as HTMLButtonElement;
+      const nextBtn = container.querySelector('.carousel-next') as HTMLButtonElement;
+      const dots = container.querySelectorAll('.carousel-dot');
+      const images = track.querySelectorAll('img');
+
+      if (!track || !prevBtn || !nextBtn || images.length === 0) return;
+
+      let currentSlide = 0;
+      const totalSlides = images.length;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('is-active', index === currentSlide);
+        });
+      }
+
+      const resetAutoAdvance = () => startAutoAdvance(containerEl);
+
+      prevBtn.addEventListener('click', () => {
+        currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+        updateCarousel();
+        resetAutoAdvance();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+        updateCarousel();
+        resetAutoAdvance();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentSlide = index;
+          updateCarousel();
+          resetAutoAdvance();
+        });
+      });
+
+      updateCarousel();
+    });
+  });
+</script>
