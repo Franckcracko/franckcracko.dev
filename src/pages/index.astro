@@ -8,32 +8,31 @@ import Projects from "@/components/Projects.astro";
 import SectionContainer from "@/components/SectionContainer.astro";
 import Hero from "@/components/Hero.astro";
 import TitleSection from "@/components/TitleSection.astro";
+import Certifications from "@/components/Certifications.astro";
 ---
 
 <Layout
-  title="🚀 Desarrollador Full Stack | Innovación y Tecnología"
-  description="Soy un desarrollador full stack apasionado por la tecnología, la innovación y la creación de soluciones inteligentes. Me especializo en el desarrollo de aplicaciones web y móviles, con experiencia en NestJS, React, PostgreSQL, TypeORM y más."
+  title="Brian Leonardo Martínez Cobos — Desarrollador Full Stack"
+  description="Portafolio de Brian Leonardo Martínez Cobos, Desarrollador Full Stack especializado en Next.js, React, TypeScript, Node.js, Express, NestJS, PostgreSQL y React Native. Construyo productos digitales escalables con enfoque en tiempo real, UX y arquitectura limpia."
+  type="profile"
 >
   <main class="px-4">
     <SectionContainer class="py-16 md:py-36">
       <Hero />
     </SectionContainer>
   </main>
-  <div class="space-y-24">
-    <!-- <SectionContainer id="experiencia">
-      <TitleSection>
-        <Briefcase class="size-8" />
-        Experiencia laboral
-      </TitleSection>
-      <Experience />
-    </SectionContainer> -->
 
+  <div class="space-y-24 md:space-y-32">
     <SectionContainer id="proyectos">
       <TitleSection>
         <CodeIcon class="size-7" />
         Proyectos
       </TitleSection>
       <Projects />
+    </SectionContainer>
+
+    <SectionContainer id="certificaciones">
+      <Certifications />
     </SectionContainer>
 
     <SectionContainer id="sobre-mi">
