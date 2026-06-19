@@ -5,12 +5,14 @@ import NextJS from "./icons/NextJS.astro";
 import Tailwind from "./icons/Tailwind.astro";
 import Clerk from "./icons/Clerk.astro";
 import Postgresql from "./icons/Postgresql.astro";
+import AstroIcon from "./icons/AstroIcon.astro";
 
 const TAGS = {
   NEXT: { name: "Next.js", class: "bg-black text-white", icon: NextJS },
   TAILWIND: { name: "Tailwind CSS", class: "bg-[#003159] text-white", icon: Tailwind },
   CLERK: { name: "Clerk", class: "bg-purple-500 text-white", icon: Clerk },
   POSTGRESQL: { name: "PostgreSQL", class: "bg-blue-500 text-white", icon: Postgresql },
+  ASTRO: { name: "Astro", class: "bg-black text-white", icon: AstroIcon },
   NESTJS: { name: "NestJS", class: "bg-red-500 text-white", icon: null },
   EXPRESS: { name: "Express", class: "bg-gray-700 text-white", icon: null },
   REACT: { name: "React", class: "bg-cyan-500 text-white", icon: null },
@@ -62,6 +64,16 @@ const PROJECTS = [
     github: null,
     link: null,
   },
+  {
+    id: "avatars",
+    title: "Avatars.Dev",
+    subtitle: "Generador de Avatares AI",
+    description: "Generador de avatares multiplataforma potenciado por Dicebear, con una ruleta mágica que crea identidades visuales únicas en cada giro. Centraliza un editor completo con más de 100 rasgos personalizables, paletas de colores preestablecidas y personalizadas, sistema de favoritos, exportación en SVG, PNG y JPG, y sincronización de preferencias con tema claro y oscuro, con una arquitectura SPA ligera que une creatividad, rendimiento y privacidad en un solo ecosistema.",
+    images: ["/projects/avatars/hero.png", "/projects/avatars/avatars.png"],
+    tags: [TAGS.REACT, TAGS.TAILWIND, TAGS.TYPESCRIPT],
+    github: "https://github.com/Franckcracko/avatars.dev.git",
+    link: "https://avatars-dev.vercel.app/",
+  }
 ];
 ---
 
